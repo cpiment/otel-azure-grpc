@@ -4,15 +4,17 @@ Minimal implementation to reproduce issue [24189](https://github.com/Azure/azure
 
 # Steps to reproduce
 
+Easiest way to reproduce it is from Azure Cloud Shell since it already has `az` installed and logged in, but it also can be reproduced in any machine with azcli installed. 
+
 Clone this repository in Azure Cloud Shell and `cd` to it
 
 ```
-python -m virtualenv venv
-pip install -r requirements.txt
-export SUBSCRIPTION_ID='your_subscription_id'
-export VM_NAME='name_of_a_VM'
-export RESOURCE_GROUP='resource_group_of_the_VM'
-python otel-azure-grpc.py
+$ python -m virtualenv venv
+$ pip install -r requirements.txt
+$ export SUBSCRIPTION_ID='your_subscription_id' # Get it from 'az account list'
+$ export VM_NAME='name_of_a_VM' # Get this from the azure portal or 'az vm list' 
+$ export RESOURCE_GROUP='resource_group_of_the_VM' 
+$ python otel-azure-grpc.py
 ```
 
 The result of those commands should be something like this:
